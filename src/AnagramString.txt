@@ -1,0 +1,90 @@
+package com.AlgorithmProblems;
+
+import java.util.*;
+
+/**
+ * 
+ * @author DELL
+ *
+ */
+
+/**
+ * 
+ * @author DELL
+ *
+ */
+
+public class AnagramString {
+	/**
+	 * 
+	 * @param array1
+	 * @param array2
+	 * @return
+	 */
+
+	static boolean toCheckAnagram(char[] array1, char[] array2) {
+		int length1 = array1.length;
+		int length2 = array2.length;
+
+		if (length1 != length2) {
+			return false;
+		}
+
+		/*
+		 * Function for sorting both the ayrrays
+		 */
+		Arrays.sort(array1);
+		Arrays.sort(array2);
+
+		/*
+		 * Comparing the sorted strings
+		 */
+		for (int i = 0; i < length1; i++) {
+			if (array1[i] != array2[i]) {
+				return false;
+			}
+		}
+
+		return true;
+
+	}
+
+	/**
+	 * 
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		/*
+		 * This is the main fucftion of our program
+		 */
+
+		Scanner sc = new Scanner(System.in);
+		/*
+		 * Taking input for first string
+		 */
+
+		System.out.println("Enter first string");
+
+		String str1 = sc.next();
+		/*
+		 * Taking input for second string
+		 */
+
+		System.out.println("Enter second  string");
+
+		String str2 = sc.next();
+
+		char[] arr1 = str1.toCharArray();
+
+		char[] arr2 = str2.toCharArray();
+
+		/*
+		 * Calling the fuction
+		 */
+		if (toCheckAnagram(arr1, arr2)) {
+			System.out.println("The two strings are anagram");
+		} else {
+			System.out.println("The two strings are not anagram ");
+		}
+	}
+}
