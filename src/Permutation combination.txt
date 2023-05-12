@@ -1,0 +1,69 @@
+package com.AlgorithmProblems;
+
+import java.util.*;
+
+/**
+ * 
+ * @author DELL
+ *
+ */
+
+public class PermutationCombination {
+	/**
+	 * 
+	 * @param str
+	 * @param p
+	 * @param q
+	 */
+
+	static void permutation(String str, int p, int q) {
+		if (p == q) {
+			System.out.println(str);
+		}
+
+		else {
+			for (int i = p; i <= q; i++) {
+				str = swapping(str, p, i);
+				permutation(str, p + 1, q);
+				str = swapping(str, p, i);
+
+			}
+		}
+	}
+
+	/**
+	 * 
+	 * @param a
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+
+	static String swapping(String a, int x, int y) {
+		char temp;
+		char[] charArray = a.toCharArray();
+		temp = charArray[x];
+		charArray[x] = charArray[y];
+		charArray[y] = temp;
+		return String.valueOf(charArray);
+
+	}
+	/*
+	 * Main method of the program
+	 */
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		/*
+		 * String to be checked
+		 */
+		System.out.println("Enter the String");
+		String str = sc.next();
+
+		int n = str.length();
+
+		permutation(str, 0, n - 1);
+
+	}
+
+}
