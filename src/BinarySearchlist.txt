@@ -1,0 +1,94 @@
+package com.AlgorithmProblems;
+
+import java.util.*;
+
+/**
+ * 
+ * @author DELL
+ *
+ */
+
+/*
+ * This is the main class
+ */
+
+public class BinarySearchList {
+	/**
+	 * 
+	 * @param args
+	 */
+
+	/**
+	 * 
+	 * @param arr
+	 * @param q
+	 * @return
+	 */
+
+	static int binarySearchList(String[] arr, String q) {
+		int a = 0, r = arr.length - 1;
+		while (a <= r) {
+			int p = a + (r - a) / 2;
+
+			int result = q.compareTo(arr[p]);
+
+			/*
+			 * Check if q word is present at mid
+			 */
+			if (result == 0) {
+				return p;
+			}
+			/*
+			 * If q greater, ignore left half
+			 */
+			if (result > 0)
+				a = p + 1;
+
+			/*
+			 * If q is smaller, ignore right half
+			 */
+			else
+				r = p - 1;
+		}
+
+		return -1;
+	}
+	/*
+	 * This is main method of program
+	 */
+
+	public static void main(String[] args) {
+		/*
+		 *Scanner Object 
+		 */
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter size of array containing word list");
+
+		int size = sc.nextInt();
+
+		String[] wordList = new String[size];
+
+		System.out.println("Enter words for list");
+
+		for (int i = 0; i < size; i++) {
+			wordList[i] = sc.next();
+		}
+
+		Arrays.sort(wordList);
+
+		System.out.println("Enter the word to search");
+
+		String wordSearch = sc.next();
+
+		int result = binarySearchList(wordList, wordSearch);
+
+		if (result == -1) {
+			System.out.println("The  word not found in list" + wordSearch);
+		} else {
+			System.out.println("The following  " + wordSearch + " word is found at " + result + " following index");
+		}
+
+	}
+
+}
