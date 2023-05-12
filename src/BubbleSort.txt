@@ -1,0 +1,82 @@
+package com.AlgorithmProblems;
+
+import java.util.Scanner;
+/**
+ * 
+ * @author DELL
+ *
+ */
+
+class BubbleSortProb {
+	/*
+	 * 
+	 */
+    private int[] array;
+/**
+ * 
+ * @param size
+ */
+    public BubbleSortProb(int size) {
+        array = new int[size];
+    }
+    
+    /*
+     *Taking input of array from user 
+     */
+
+    public void readArrayFromUser() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the elements of the array:");
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = scanner.nextInt();
+        }
+
+    }
+    /*
+     *Sorting the array and then swapping the variables
+     */
+
+    public void bubbleSort() {
+        int n = array.length;
+
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    // Swap array[j] and array[j+1]
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+    }
+    
+    /*
+     * To display athe sorted array
+     */
+    
+
+    public void displayArray() {
+        System.out.println("Sorted array:");
+
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+    }
+}
+
+public class BubbleSort {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+
+        BubbleSort bubbleSort = new BubbleSort();
+        bubbleSort.readArrayFromUser();
+        bubbleSort.bubbleSort();
+        bubbleSort.displayArray();
+
+    }
+}
+
