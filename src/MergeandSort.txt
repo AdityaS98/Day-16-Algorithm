@@ -1,0 +1,63 @@
+package com.AlgorithmProblems;
+
+import java.io.IOException;
+import java.util.*;
+
+/**
+ * 
+ * @author DELL
+ *
+ */
+
+public class MergeSort {
+	/**
+	 * 
+	 * @param args
+	 */
+
+	public static void main(String[] args)throws IOException
+	{
+		int a[], b[], c[], asize = 0, bsize, csize, i, j = 0, t;
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Enter size of A array: ");
+		asize = sc.nextInt();
+		a = new int[asize];
+
+		System.out.println("Enetr elemets of A array");
+		for (i = 0; i < asize; i++) {
+			a[i] = sc.nextInt();
+		}
+		System.out.print("Enter size of B array: ");
+		bsize = sc.nextInt();
+		b = new int[asize];
+
+		System.out.println("Enetr elemets of B array");
+		for (i = 0; i < bsize; i++) {
+			b[i] = sc.nextInt();
+		}
+		csize = asize + bsize;
+		c = new int[csize];
+		for (i = 0; i < asize; i++) {
+			c[i] = a[i];
+		}
+		for (i = 0; i < bsize; i++) {
+			System.out.println(c[i]);
+		}
+
+		for (i = 0; i < csize; i++) {
+			for (i = 0; i < csize - i - 1; i++) {
+				if (c[j] > c[j + 1]) {
+					t = c[j];
+					c[j] = c[j + 1];
+					c[j + 1] = t;
+				}
+
+				System.out.println("Merged array is ");
+				for (i = 0; i <=csize; i++) {
+					System.out.println(c[i]);
+				}
+			}
+		}
+	}
+}
